@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Uma pergunta importante ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#ff9ec4,#ffd6e8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    width:90%;
+    max-width:500px;
+}
+
+h1{
+    color:#ff4081;
+    margin-bottom:40px;
+}
+
+.botoes{
+    position:relative;
+    height:150px;
+}
+
+button{
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+#sim{
+    background:#4CAF50;
+    color:white;
+    margin-right:20px;
+}
+
+#nao{
+    position:absolute;
+    background:#f44336;
+    color:white;
+}
+
+#mensagem{
+    margin-top:25px;
+    color:#d50000;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>
+Ana Lívia Lins,<br>
+quer namorar comigo? ❤️
+</h1>
+
+<div class="botoes">
+<button id="sim">Sim ❤️</button>
+<button id="nao">Não 😢</button>
+</div>
+
+<div id="mensagem"></div>
+
+</div>
+
+<script>
+
+const nao=document.getElementById("nao");
+const msg=document.getElementById("mensagem");
+
+function moverBotao(){
+
+    const largura=window.innerWidth-150;
+    const altura=window.innerHeight-80;
+
+    nao.style.left=Math.random()*largura+"px";
+    nao.style.top=Math.random()*altura+"px";
+
+    msg.innerHTML="❌ Opção inválida. Tente novamente 😁";
+}
+
+nao.addEventListener("mouseenter",moverBotao);
+nao.addEventListener("touchstart",function(e){
+    e.preventDefault();
+    moverBotao();
+});
+
+document.getElementById("sim").onclick=function(){
+    document.body.innerHTML=`
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;
+    background:#ff9ec4;font-family:Arial;text-align:center;color:white;">
+        <div>
+            <h1>❤️ Eu sabia!! ❤️</h1>
+            <h2>Agora você acabou de fazer alguém muito feliz! 🥰</h2>
+        </div>
+    </div>
+    `;
+}
+
+</script>
+
+</body>
+</html>
